@@ -68,3 +68,64 @@ JavaScript function scope arrow vs regular function or function expression in ob
   // result 
   otherExpertise : 2
 ```
+
+ Parent SCOPE 
+
+ ```JS
+     
+    // ARROW FUNCTION IN METHOD ALSO KNOW AS PARENT SCOPE 
+    
+    var otherExpertise = 7; // GLOBAL SCOPE
+
+    const Developer = {
+      
+      yearsExperience : 6,
+      otherExpertise : 2, // within the scope || local scope
+      // function expression OR METHOD !
+      getExp : function() {
+         
+        /* PARENT SCOPE : arrow function can also use to grab the local property it's parent or Developer Object,
+           as it is use inside of METHOD, this way it have an access to it's parent PROPERTIES which is Developer Object.
+           In addition arrow function can access the local scope properties of Object once it is INSIDE of Object METHOD instead of accessing the 
+           GLOBAL PROPERTIES OR GLOBAL VARIABLE once arrow function is a METHOD. 
+           
+           PROPERTIES :
+            yearsExperience : 6,
+            otherExpertise : 2, */
+            
+          // arrow function inside of getExp method now can access local properties of Object Developer NOT GLOBAL SCOPE!
+          const parentScope = () => {
+            let oE = this.otherExpertise;
+            return('This is Parent scope arrow function works' + oE ); // result 2
+          }
+          
+          // Then finally invoke arrow function inside of METHOD getExp
+          return parentScope();
+        /*
+        ----------------------------------------------------------------------------------------------------------
+          THIS APPROACH NOT WORK!
+          const parentScope => function() {
+              let oE = this.otherExpertise;
+              return('This is Paretn scope arrow function works' + oE ); // result ERROR !
+          }
+        ----------------------------------------------------------------------------------------------------------
+          THIS APPROACH IS WORK < Preserved the "this" keyword > OLD WAY BUT NOW AS ARROW FUNCTION!
+          Preserved the "this" keyword, now can access local properties.
+          This is alternative of arrow function (() => { ... });
+          const self = this;
+          const parentScope => function() {
+             let oE = self.otherExpertise; // instead of "this" use "self"
+             return('This is Paretn scope arrow function works' + oE ); // result  2
+          }
+        */
+        
+      }
+  }
+
+  console.log("Hey! " + Developer.getExp() ); // Read from local scope or Object Developer using arrow function inside the method.
+```
+
+```JS
+  // Result 
+  Hey! This is Parent scope arrow function works2
+```
