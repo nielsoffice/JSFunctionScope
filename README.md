@@ -24,12 +24,14 @@ JavaScript function scope arrow vs regular function or function expression in ob
       
         yearsExperience : 6,
         otherExpertise : 2, // within the scope || local scope
+        // function expression
         getExp : function() {
           let yE = this.yearsExperience; 
           if( yE > 1 ) {
             return ("Congratulation You are qualify : " + yE );
           }
         },
+        // arrow function
         getOtherExpertise: () => {
           let op = this.otherExpertise; // from GLOBAL SCOPE !
           return ("Plus your Other expertise : " + op );
