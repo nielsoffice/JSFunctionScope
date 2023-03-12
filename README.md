@@ -23,7 +23,7 @@ JavaScript function scope arrow vs regular function or function expression in ob
     const Developer = {
       
         yearsExperience : 6,
-        otherExpertise : 2, // within the scope
+        otherExpertise : 2, // within the scope || local scope
         getExp : function() {
           let yE = this.yearsExperience; 
           if( yE > 1 ) {
