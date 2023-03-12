@@ -1,5 +1,5 @@
-# JSFunctionScope
-JavaScript function scope arrow vs regular function in object.
+# JS Object Function Scope
+JavaScript function scope arrow vs regular function or function expression in object.
  
  
  ```JS
