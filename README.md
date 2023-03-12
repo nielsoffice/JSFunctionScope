@@ -41,7 +41,7 @@ JavaScript function scope arrow vs regular function in object.
     // If we base on "within scope" the < otherExpertise : 2 > value is 2
     // but the GLOBAL SCOPE it is 7
     // It rendered the GLOBAL SCOPE NOT the local scope base on object itself! 
-    // That is how arrow function works in objectData or OOP approach!
+    // That is how arrow function works in objectData in JS !
     console.log("Hey! " + Developer.getOtherExpertise() ); // Read from GLOBAL VARIABLE
 ```
 
