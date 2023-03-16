@@ -134,7 +134,7 @@ JavaScript function scope arrow vs regular function or function expression in ob
  // Factory Function that creates an object and returns it
  // Similar to Class and constructor
  // This approach is NOT recommend if the method or properties having a thousand. \
- // can't handle by mermory heap.
+ // can't handle by mermory heap instead use Object.create() method.
  function createDev(name, skills, experience) {
   return {
     name,       // name: name,  | If the property and argument is the same. 
