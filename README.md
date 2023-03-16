@@ -131,7 +131,7 @@ JavaScript function scope arrow vs regular function or function expression in ob
 ```
 
 ```JS
- // Factory Function that creates an object and returns it
+ // [ THIS MIGHT WRONG ] Factory Function that creates an object and returns it 
  // Similar to Class and constructor
  // This approach is NOT recommend if the method or properties having a thousand unuse for other createDev
  // can't handle by mermory heap instead use Object.create() method.
@@ -148,8 +148,35 @@ JavaScript function scope arrow vs regular function or function expression in ob
 ```
 
 ```JS
- // Concole.log() | Result 
+ // [ THIS MIGHT WRONG ] Concole.log() | Result 
  const niel = createDev('Niel', 'PHP, JS, C++', 6);
  console.log(niel); // Result: {name: 'Niel', skills: 'PHP, JS, C++', experience: 6, report: ƒ}
  console.log(niel.report()); // Result: Hi!, My name is Niel My skills are PHP, JS, C++ Yrs of experience 6
+```
+
+```JS
+ // [ THIS IS CORRECT ] Now you can select those Developer that was created by createDev() function
+ // Select those who need a report to save a heap memory 
+ // The solution 
+ // Create a funtion that optional to be use from each dev
+ const devFunction = {
+    report() {
+      return 'Hi!, My name is ' + this.name + ' My skills are ' +  this.skills +' Yrs of experience '+  this.experience;
+  }  
+ }
+ 
+ function createDev(name, skills, experience) {
+  return {
+    name: name,
+    skills: skills,
+    experience: experience,
+   } 
+ }
+```
+
+```JS
+ // [ THIS IS CORRECT ]
+ const niel  = createDev('Niel', 'PHP, JS, C++', 6);
+ niel.report = devFunction.report;
+ console.log( niel.report() ); // Result: Hi!, My name is Niel My skills are PHP, JS, C++ Yrs of experience 6
 ```
