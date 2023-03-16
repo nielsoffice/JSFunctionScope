@@ -135,9 +135,9 @@ JavaScript function scope arrow vs regular function or function expression in ob
  // SImilar to Class and constructor
  function createDev(name, skills, experience) {
   return {
-    name: name,
-    skills: skills,
-    experience: experience,
+    name,       // name: name,  | If the property and argument is the same. 
+    skills,     // skills: skills, | If the property and argument is the same.
+    experience, // experience: experience, | If the property and argument is the same.
     report() {
       return 'Hi!, My name is ' + name + ' My skills are ' + skills +' Yrs of experience '+ experience;
     }
