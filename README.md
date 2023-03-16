@@ -129,3 +129,25 @@ JavaScript function scope arrow vs regular function or function expression in ob
   // Result 
   Hey! This is Parent scope arrow function works2
 ```
+
+```JS
+ // Factory Function that creates an object and returns it
+ // SImilar to Class and constructor
+ function createDev(name, skills, experience) {
+  return {
+    name: name,
+    skills: skills,
+    experience: experience,
+    report() {
+      return 'Hi!, My name is ' + name + ' My skills are ' + skills +' Yrs of experience '+ experience;
+    }
+   } 
+ }
+```
+
+```JS
+ // Concole.log() | Result 
+ const niel = createDev('Niel', 'PHP, JS, C++', 6);
+ console.log(niel); // Result: {name: 'Niel', skills: 'PHP, JS, C++', experience: 6, report: ƒ}
+ console.log(niel.report()); // Result: Hi!, My name is Niel My skills are PHP, JS, C++ Yrs of experience 6
+```
