@@ -172,11 +172,34 @@ JavaScript function scope arrow vs regular function or function expression in ob
     experience: experience,
    } 
  }
-```
-
+ 
 ```JS
  // [ THIS IS CORRECT ]
  const niel  = createDev('Niel', 'PHP, JS, C++', 6);
  niel.report = devFunction.report;
  console.log( niel.report() ); // Result: Hi!, My name is Niel My skills are PHP, JS, C++ Yrs of experience 6
 ```
+
+```JS
+ // Final !
+const devFunction = {
+  report: function() {
+    return 'Hi!, My name is ' + this.name + ' My skills are ' +  this.skills +' Yrs of experience '+  this.experience;
+  }
+}
+function createDev(name, skills, experience) {
+
+  newDev = Object.create(devFunction)
+  newDev.name = name;
+  newDev.skills = skills;
+  newDev.experience = experience;
+  return newDev
+  
+  // console.log( newDev.__proto__ );
+}
+
+ const niel  = createDev('Niel', 'PHP, JS, C++', 6);
+ console.log( niel.report() ); // Result: Hi!, My name is Niel My skills are PHP, JS, C++ Yrs of experience 6
+
+```
+
